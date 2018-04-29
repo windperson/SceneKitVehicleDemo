@@ -26,12 +26,16 @@ namespace SceneKitVehicle
 		{
 			var pointOfViews = new List<SCNNode> ();
 			foreach (var node in Scene.RootNode.ChildNodes) {
-				if (node.Camera != null)
+			    if (node.Camera != null)
+			    {
 					pointOfViews.Add (node);
+			    }
 
 				foreach (var childNode in node.ChildNodes) {
-					if (childNode.Camera != null)
+				    if (childNode.Camera != null)
+				    {
 						pointOfViews.Add (childNode);
+				    }
 				}
 			}
 
@@ -39,8 +43,10 @@ namespace SceneKitVehicle
 			int index = pointOfViews.IndexOf (currentPointOfView);
 			index++;
 
-			if (index >= pointOfViews.Count)
+		    if (index >= pointOfViews.Count)
+		    {
 				index = 0;
+		    }
 
 			InCarView = index == 0;
 
